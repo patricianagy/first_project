@@ -1,11 +1,11 @@
-ls: 
-    .js: camelCase
-    .css: camelCase
+ls:
+  .js: camelCase
+  .css: camelCase
 
-ignore: 
-    - .\.eslintrc.js
-    - .git 
-    - node_modules
-    - .\src\App.test.js
-    - .\src\App.css
-    - .\src\App.js
+ignore:
+  - .\.eslintrc.js
+  - .git
+  - node_modules
+  - .\src\App.test.js
+  - .\src\App.css
+  - .\src\App.js
