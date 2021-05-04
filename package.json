@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*",
     "ls": "ls-lint",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
@@ -30,7 +31,9 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "eslint . --fix","prettier --write ."
+      "eslint . --fix",
+      "prettier --write .",
+      "git add"
     ]
   },
   "husky": {
