@@ -14,9 +14,9 @@ function App() {
           <div className="App">
             <header className="App-header">
               <Hero />
-              <Link to="/first-router">
+              {/*<Link to="/first-router">
                 <Button variant="outline-success">Lovely succes button</Button>
-              </Link>
+              </Link>*/}
             </header>
           </div>
         </Route>

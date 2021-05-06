@@ -1,15 +1,32 @@
-.Hero-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  //justify-content: flex-end;
-  padding: 20%;
-  background-color: #f7fdfb;
+@import '~bootstrap/scss/bootstrap';
+
+.Heading {
+  padding-top: 20%;
+  font-weight: bolder;
+  color: #99efd0;
+  font-family: 'Inconsolata', monospace;
 }
 
-h1 {
-  font-weight: bolder;
-  font-size: 500%;
-  color: #8d2a4b;
-  font-family: 'Inconsolata', monospace;
+.Subheading {
+  color: #8476aa;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.btn-learn-more {
+  background: #f2994a;
+  box-shadow: -11.09px 18.13px 36.6483px rgba(242, 153, 74, 0.13);
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.l-3 {
+  margin-left: 5%;
 }
