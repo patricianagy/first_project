@@ -12,17 +12,17 @@ function Hero() {
     <div>
       <Contaiener fluid>
         <Row>
-          <Col md={5}>
+          <Col lg={5} md={11} xs={11}>
             <Contaiener fluid className="ml-6">
               <Row>
-                <Col>
+                <Col xs={12}>
                   <h1 className="Heading">
                     Many reasons to get up and start to get back in business
                   </h1>
                 </Col>
               </Row>
               <Row>
-                <Col>
+                <Col xs={11}>
                   <h5 className="Subheading">
                     The harder you work for something, the greater you'll feel
                     when you achive it.
@@ -30,19 +30,19 @@ function Hero() {
                 </Col>
               </Row>
               <Row>
-                <Col md={4}>
-                  <Button variant="learn-more" block>
+                <Col md={4} xs={6}>
+                  <Button variant="learn-more" className="mh-100" block>
                     Learn more
                   </Button>
                 </Col>
-                <Col md={4}>
-                  <Button variant="demo" block>
+                <Col md={4} xs={6} className="ml-sm-4">
+                  <Button variant="demo" className="mh-100" block>
                     Demo
                   </Button>
                 </Col>
               </Row>
               <Row className="my-5">
-                <Col md={4}>
+                <Col md={4} xs={4}>
                   <ResponsiveEmbed aspectRatio="16by9">
                     <iframe
                       src="https://www.youtube.com/embed/7yLxxyzGiko"
@@ -63,10 +63,10 @@ function Hero() {
               </Row>
             </Contaiener>
           </Col>
-          <Col md={6}>
+          <Col lg={7} md={12} xs={12}>
             <Contaiener fluid>
               <Row>
-                <Col lg={{ span: 12 }} className="mt-6">
+                <Col className="mt-6">
                   <Image src={hero} alt="Hero" rounded fluid />
                 </Col>
               </Row>

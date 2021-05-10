@@ -1,7 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
 .Heading {
-  padding-top: 20%;
   font-weight: bolder;
   color: #99efd0;
   font-family: 'Inconsolata', monospace;
@@ -30,7 +29,7 @@
 
 .btn-demo {
   padding: 1em;
-  margin-left: 2em;
+  //margin-left: 2em;
   border: 1px solid #f2994a;
   box-sizing: border-box;
   border-radius: 4px;
@@ -51,8 +50,8 @@
 }
 
 .mt-6 {
-  margin-top: 10%;
   margin-left: 10%;
+  margin-right: 10%;
 }
 
 .basic-text {
