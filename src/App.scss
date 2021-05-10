@@ -1,8 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
-/*.App {
-  text-align: center;
-}*/
+.App {
+  background-image: linear-gradient(222.26deg, #3b1d60 1.22%, #040d3e 106.28%);
+}
 
 .App-logo {
   height: 40vmin;
@@ -16,7 +16,7 @@
 }
 
 .App-header {
-  background-image: linear-gradient(222.26deg, #3b1d60 1.22%, #040d3e 106.28%);
+  //background-image: linear-gradient(222.26deg, #3b1d60 1.22%, #040d3e 106.28%);
   /*min-height: 100vh;
   display: flex;
   flex-direction: column;
