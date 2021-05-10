@@ -47,9 +47,27 @@
 }
 
 .ml-6 {
-  margin-left: 8%;
+  margin-left: 10%;
 }
 
 .mt-6 {
-  margin-top: 25%;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.basic-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8476aa;
+}
+
+.link-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #6d6d78;
 }
