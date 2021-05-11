@@ -1,22 +1,21 @@
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import './NavigationBar.scss'
-import Button from 'react-bootstrap/Button'
-import Image from 'react-bootstrap/Image'
+import { Navbar, Nav, Button, Image } from 'react-bootstrap'
+
 import Brand from './brand.png'
 import Hamburger from './hamburger.png'
+
+import './NavigationBar.scss'
 
 function NavigationBar() {
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" className="p-6 ">
+      <Navbar collapseOnSelect expand="lg" variant="dark">
         <Navbar.Brand>
-          <Image src={Brand} className="w-50 h-50" />
+          <Image src={Brand} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav">
           <Image src={Hamburger} />
         </Navbar.Toggle>
-        <Navbar.Collapse className="grey" id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link>About</Nav.Link>
             <Nav.Link>Gallery</Nav.Link>
@@ -26,10 +25,10 @@ function NavigationBar() {
           </Nav>
           <Nav>
             <Nav.Link>
-              <Button variant="sign-in">Sign in</Button>
+              <Button variant="outline-button">Sign in</Button>
             </Nav.Link>
             <Nav.Link>
-              <Button variant="sign-up">Sign up</Button>
+              <Button variant="button">Sign up</Button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
