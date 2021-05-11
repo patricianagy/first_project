@@ -1,58 +1,14 @@
-@import '~bootstrap/scss/bootstrap';
-
-.Heading {
+.heading {
   padding-top: 20%;
   font-weight: bolder;
   color: #99efd0;
   font-family: 'Inconsolata', monospace;
 }
 
-.Subheading {
+.subheading {
   color: #8476aa;
   padding-top: 5%;
   padding-bottom: 5%;
-}
-
-.btn-learn-more {
-  padding: 1em;
-  background: #f2994a;
-  box-shadow: -11.09px 18.13px 36.6483px rgba(242, 153, 74, 0.13);
-  border-radius: 3px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.btn-demo {
-  padding: 1em;
-  margin-left: 2em;
-  border: 1px solid #f2994a;
-  box-sizing: border-box;
-  border-radius: 4px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-
-  text-align: center;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  color: #f2994a;
-}
-
-.ml-6 {
-  margin-left: 10%;
-}
-
-.mt-6 {
-  margin-top: 10%;
-  margin-left: 10%;
 }
 
 .basic-text {
@@ -60,7 +16,6 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-
   color: #8476aa;
 }
 
