@@ -1,7 +1,7 @@
 import { Navbar, Nav, Button, Image } from 'react-bootstrap'
 
-import Brand from './brand.png'
-import Hamburger from './hamburger.png'
+import Brand from '../assets/brand.png'
+import Hamburger from '../assets/hamburger.png'
 
 import './NavigationBar.scss'
 
