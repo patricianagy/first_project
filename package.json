@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ls-lint/ls-lint": "^1.9.2",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -38,7 +39,8 @@
     "src/**/*": [
       "eslint . --fix",
       "prettier --write .",
-      "git add"
+      "git add",
+      "ls-lint"
     ]
   },
   "browserslist": {
