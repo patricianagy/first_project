@@ -7,7 +7,7 @@ import {
   ResponsiveEmbed,
 } from 'react-bootstrap'
 
-import hero from '../assets/hero.jpg'
+import hero from '../../assets/hero.jpg'
 
 import './hero.scss'
 
