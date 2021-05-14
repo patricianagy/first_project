@@ -2,6 +2,7 @@ import Hero from './components/hero/hero.js'
 import NavigationBar from './components/navigationBar/navigationBar.js'
 import Footer from './components/footer/footer.js'
 import Counter from './components/counter/counter.js'
+import ModalWindow from './components/modal/modal.js'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <NavigationBar />
       <Hero />
       <Counter />
+      <ModalWindow />
       <Footer />
     </div>
   )
