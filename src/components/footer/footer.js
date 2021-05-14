@@ -19,22 +19,22 @@ function Footer() {
             <Image src={Facebook} className="ml-4"></Image>
           </Col>
         </Row>
-        <Row className="pages">
-          <Col md={3}>
+        <Row className="pages  justify-content-md-between">
+          <Col md={2}>
             <p className="title">First</p>
             <p>First page</p>
             <p>Second page</p>
             <p>Third page</p>
             <p>Fourth page</p>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <p className="title">Second</p>
             <p>First page</p>
             <p>Second page</p>
             <p>Third page</p>
             <p>Fourth page</p>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <p className="title">Third</p>
             <p>First page</p>
             <p>Second page</p>
@@ -48,6 +48,11 @@ function Footer() {
             <p>Third page</p>
             <p>Fourth page</p>
           </Col>
+        </Row>
+        <Row className="justify-content-md-center terms py-5">
+          <Col md={2}>© Copyrights 2021 </Col>
+          <Col md={2}>Privacy policy</Col>
+          <Col md={2}>Terms of service</Col>
         </Row>
       </Container>
     </footer>
