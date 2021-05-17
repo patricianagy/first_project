@@ -6,7 +6,7 @@ import Hamburger from '../../assets/hamburger.png'
 function NavigationBar() {
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" variant="dark">
+      <Navbar collapseOnSelect expand="lg" variant="dark" className="pb-5">
         <Navbar.Brand>
           <Image src={Brand} />
         </Navbar.Brand>
