@@ -9,8 +9,7 @@ function App() {
     <div className="app px-5 py-3">
       <NavigationBar />
       <Hero />
-      <Counter />
-      <ModalWindow />
+      <Counter start={0} end={5} prefix="~" duration={5} />
       <Footer />
     </div>
   )
