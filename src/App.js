@@ -16,7 +16,7 @@ function App() {
       <NavigationBar />
       <Hero />
       <Counter start={0} end={5} prefix="~" duration={5} />
-      <Counter />
+
       <Button variant="button" onClick={handleShow} className="my-5">
         Open modal
       </Button>
