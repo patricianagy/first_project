@@ -15,7 +15,9 @@ function App() {
     <div className="app px-5 py-3">
       <NavigationBar />
       <Hero />
-      <Counter />
+
+      <Counter start={0} end={5} prefix="~" duration={5} />
+     
       <Button variant="button" onClick={handleShow} className="my-5">
         Open modal
       </Button>
@@ -31,6 +33,7 @@ function App() {
         elit pretium nec."
         buttonText="Close"
       />
+
       <Footer />
     </div>
   )
