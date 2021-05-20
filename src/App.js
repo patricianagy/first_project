@@ -3,6 +3,7 @@ import NavigationBar from './components/navigationBar/navigationBar.js'
 import Footer from './components/footer/footer.js'
 import Counter from './components/counter/counter.js'
 import ModalWindow from './components/modal/modal.js'
+import NumberConverter from './components/numberConverter/numberConverter.js'
 import { Button } from 'react-bootstrap'
 import { useState } from 'react'
 
@@ -32,6 +33,7 @@ function App() {
         elit pretium nec."
         buttonText="Close"
       />
+      <NumberConverter />
       <Footer />
     </div>
   )
