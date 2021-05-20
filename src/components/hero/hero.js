@@ -1,17 +1,28 @@
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Image,
-  ResponsiveEmbed,
-} from 'react-bootstrap'
+import { Container, Row, Col, Button, ResponsiveEmbed } from 'react-bootstrap'
 
-import hero from '../../assets/hero.jpg'
+import Gallery from '../gallery/gallery'
 
 import './hero.scss'
 
+import hero from '../../assets/hero.jpg'
+import platypus from '../../assets/platypus.jpg'
+
 function Hero() {
+  const pictures = []
+  pictures.push({
+    key: 1,
+    src: hero,
+    color: 'light',
+    caption: 'First slide',
+  })
+
+  pictures.push({
+    key: 2,
+    src: platypus,
+    color: 'dark',
+    caption: 'Second slide',
+  })
+
   return (
     <Container fluid>
       <Row>
@@ -59,7 +70,7 @@ function Hero() {
           </Row>
         </Col>
         <Col md={6}>
-          <Image src={hero} alt="Hero" rounded fluid />
+          <Gallery pictures={pictures} />
         </Col>
       </Row>
     </Container>

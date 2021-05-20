@@ -17,7 +17,10 @@ function App() {
       <Hero />
 
       <Counter start={0} end={5} prefix="~" duration={5} />
+
+
      
+
       <Button variant="button" onClick={handleShow} className="my-5">
         Open modal
       </Button>
