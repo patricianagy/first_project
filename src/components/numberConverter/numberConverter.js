@@ -5,7 +5,7 @@ function NumberConverter() {
   const [text, setText] = useState('')
 
   const smallerThanTwenty = [
-    '',
+    'zero',
     'one',
     'two',
     'three',
@@ -44,13 +44,13 @@ function NumberConverter() {
 
     let num = parseFloat(n)
 
-    if (numString.length > 6)
+    if (numString.length > 7)
       return 'Too big number, please try again with a smaller!'
 
     if (num === 0) return 'zero'
 
     if (num < 20) {
-      return smallerThanTwenty[n]
+      return smallerThanTwenty[num]
     }
 
     if (numString.length === 2) {
@@ -70,38 +70,90 @@ function NumberConverter() {
     }
 
     if (numString.length === 4) {
-      let end3 = +(numString[1] + numString[2] + numString[3])
+      let lastThreeDigit = +(numString[1] + numString[2] + numString[3])
       let begining = +(numString[0] + numString[1])
-      let end2 = +(numString[2] + numString[3])
-      if (end3 === 0) return smallerThanTwenty[numString[0]] + ' thousand'
-      if (begining < 20 && end2 === 0)
+      let lastTwoDigit = +(numString[2] + numString[3])
+      if (lastThreeDigit === 0)
+        return smallerThanTwenty[numString[0]] + ' thousand'
+      if (begining < 20 && lastTwoDigit === 0)
         return smallerThanTwenty[begining] + ' hundred'
       if (begining < 20)
-        return smallerThanTwenty[begining] + ' hundred and ' + convert(end2)
-      if (end3 < 100)
         return (
-          smallerThanTwenty[numString[0]] + ' thousand and ' + convert(end3)
+          smallerThanTwenty[begining] + ' hundred and ' + convert(lastTwoDigit)
         )
-      return smallerThanTwenty[numString[0]] + ' thousand ' + convert(end3)
+      if (lastThreeDigit < 100)
+        return (
+          smallerThanTwenty[numString[0]] +
+          ' thousand and ' +
+          convert(lastThreeDigit)
+        )
+      return (
+        smallerThanTwenty[numString[0]] + ' thousand ' + convert(lastThreeDigit)
+      )
     }
 
     if (numString.length === 5) {
-      let end3 = +(numString[2] + numString[3] + numString[4])
-      let begining = +(numString[0] + numString[1])
-      if (end3 === 0) return convert(begining) + ' thousand'
-      if (end3 < 100)
-        return convert(begining) + ' thousand and ' + convert(end3)
-      return convert(begining) + ' thousand ' + convert(end3)
+      return convertBigNumber(
+        numString[0] + numString[1],
+        numString[2] + numString[3] + numString[4]
+      )
     }
 
     if (numString.length === 6) {
-      let end3 = +(numString[3] + numString[4] + numString[5])
-      let begining = +(numString[0] + numString[1] + numString[2])
-      if (end3 === 0) return convert(begining) + ' thousand'
-      if (end3 < 100)
-        return convert(begining) + ' thousand and ' + convert(end3)
-      return convert(begining) + ' thousand ' + convert(end3)
+      return convertBigNumber(
+        numString[0] + numString[1] + numString[2],
+        numString[3] + numString[4] + numString[5]
+      )
     }
+
+    if (numString.length === 7) {
+      if (
+        +(
+          numString[1] +
+          numString[2] +
+          numString[3] +
+          numString[4] +
+          numString[5] +
+          numString[6]
+        ) === 0
+      )
+        return smallerThanTwenty[numString[0]] + ' million '
+      if (
+        +(numString[4] + numString[5] + numString[6]) < 100 &&
+        +(numString[1] + numString[2]) === 0
+      )
+        return converOverMillion(numString[0], numString[5] + numString[6])
+      if (+numString[1] === 0) {
+        return converOverMillion(
+          numString[0],
+          numString[2] +
+            numString[3] +
+            numString[4] +
+            numString[5] +
+            numString[6]
+        )
+      }
+      return converOverMillion(
+        numString[0],
+        numString[1] +
+          numString[2] +
+          numString[3] +
+          numString[4] +
+          numString[5] +
+          numString[6]
+      )
+    }
+  }
+
+  function converOverMillion(begining, end) {
+    return smallerThanTwenty[begining] + ' million and ' + convert(end)
+  }
+
+  function convertBigNumber(begining, end) {
+    if (+end === 0) return convert(begining) + ' thousand'
+    if (+end < 100)
+      return convert(begining) + ' thousand and ' + convert(end[1] + end[2])
+    return convert(begining) + ' thousand ' + convert(end)
   }
 
   function isNegative(n) {
@@ -110,7 +162,7 @@ function NumberConverter() {
       return 'Not a valid number, please try again with an integer!'
 
     if (parseInt(n) < 0) {
-      if (num.length > 7)
+      if (num.length > 8)
         return 'Too small number, please try again with a bigger!'
       return 'minus ' + convert(num.slice(1))
     }
@@ -126,7 +178,7 @@ function NumberConverter() {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        type="number"
+        type="text"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
