@@ -5,7 +5,7 @@ function NumberConverter() {
   const [text, setText] = useState('')
 
   const smallerThanTwenty = [
-    'zero',
+    '',
     'one',
     'two',
     'three',
@@ -26,23 +26,9 @@ function NumberConverter() {
     'eighteen',
     'nineteen',
   ]
-
-  const tenFoldsWith = [
+  const tens = [
     '',
     '',
-    'twenty-',
-    'thirty-',
-    'forty-',
-    'fifty-',
-    'sixty-',
-    'seventy-',
-    'eighty-',
-    'ninety-',
-  ]
-
-  const tenFolds = [
-    '',
-    'ten',
     'twenty',
     'thirty',
     'forty',
@@ -54,89 +40,87 @@ function NumberConverter() {
   ]
 
   function convert(n) {
-    let num = n
+    let numString = n.toString()
 
-    num = parseFloat(num)
-    let remain10 = num % 10
-    let remain100 = num % 100
-    let remain1000 = num % 1000
+    let num = parseFloat(n)
 
-    if (num < 0 || !Number.isInteger(num)) {
-      return 'It is not an appropriate number, please try again with an integer!'
-    } else if (num < 20) {
-      return smallerThanTwenty[num % 20]
-    } else if (num < 100) {
-      if (remain10 === 0) {
-        return tenFolds[num / 10]
-      }
-      return tenFoldsWith[(num - remain10) / 10] + smallerThanTwenty[remain10]
-    } else if (num < 2000) {
-      if (remain100 === 0) {
-        return smallerThanTwenty[num / 100] + ' hundred'
-      } else if (remain10 === 0) {
-        return (
-          smallerThanTwenty[(num - remain100) / 100] +
-          ' hundred and ' +
-          tenFolds[remain100 / 10]
-        )
-      } else if (remain100 < 20) {
-        return (
-          smallerThanTwenty[(num - remain100) / 100] +
-          ' hundred and ' +
-          smallerThanTwenty[remain100 % 20]
-        )
-      }
-      return (
-        smallerThanTwenty[(num - remain100) / 100] +
-        ' hundred and ' +
-        tenFoldsWith[(remain100 - remain10) / 10] +
-        smallerThanTwenty[remain10]
-      )
-    } else {
-      if ((num - remain1000) / 1000 < 20) {
-        if (remain1000 === 0) {
-          return smallerThanTwenty[(num - remain1000) / 1000] + ' thousand '
-        } else if (remain100 === 0) {
-          return (
-            smallerThanTwenty[(num - remain1000) / 1000] +
-            ' thousand ' +
-            smallerThanTwenty[(remain1000 - remain100) / 100] +
-            ' hundred '
-          )
-        } else if (remain10 === 0) {
-          return (
-            smallerThanTwenty[(num - remain1000) / 1000] +
-            ' thousand ' +
-            smallerThanTwenty[(remain1000 - remain100) / 100] +
-            ' hundred and' +
-            tenFolds[(remain100 - remain10) / 10]
-          )
-        } else if (remain10 < 20) {
-          return (
-            smallerThanTwenty[(num - remain1000) / 1000] +
-            ' thousand ' +
-            smallerThanTwenty[(remain1000 - remain100) / 100] +
-            ' hundred and ' +
-            smallerThanTwenty[remain100 % 20]
-          )
-        }
-        return (
-          smallerThanTwenty[(num - remain1000) / 1000] +
-          ' thousand ' +
-          smallerThanTwenty[(remain1000 - remain100) / 100] +
-          ' hundred and ' +
-          tenFoldsWith[(remain100 - remain10) / 10] +
-          smallerThanTwenty[remain10]
-        )
-      }
+    if (numString.length > 6)
+      return 'Too big number, please try again with a smaller!'
+
+    if (num === 0) return 'zero'
+
+    if (num < 20) {
+      return smallerThanTwenty[n]
     }
 
-    return 'Too big number, please try again with a smaller!'
+    if (numString.length === 2) {
+      if (+numString[1] === 0) return tens[numString[0]]
+      return tens[numString[0]] + '-' + smallerThanTwenty[numString[1]]
+    }
+
+    if (numString.length === 3) {
+      if (numString[1] === '0' && numString[2] === '0')
+        return smallerThanTwenty[numString[0]] + ' hundred'
+      else
+        return (
+          smallerThanTwenty[numString[0]] +
+          ' hundred and ' +
+          convert(+(numString[1] + numString[2]))
+        )
+    }
+
+    if (numString.length === 4) {
+      let end3 = +(numString[1] + numString[2] + numString[3])
+      let begining = +(numString[0] + numString[1])
+      let end2 = +(numString[2] + numString[3])
+      if (end3 === 0) return smallerThanTwenty[numString[0]] + ' thousand'
+      if (begining < 20 && end2 === 0)
+        return smallerThanTwenty[begining] + ' hundred'
+      if (begining < 20)
+        return smallerThanTwenty[begining] + ' hundred and ' + convert(end2)
+      if (end3 < 100)
+        return (
+          smallerThanTwenty[numString[0]] + ' thousand and ' + convert(end3)
+        )
+      return smallerThanTwenty[numString[0]] + ' thousand ' + convert(end3)
+    }
+
+    if (numString.length === 5) {
+      let end3 = +(numString[2] + numString[3] + numString[4])
+      let begining = +(numString[0] + numString[1])
+      if (end3 === 0) return convert(begining) + ' thousand'
+      if (end3 < 100)
+        return convert(begining) + ' thousand and ' + convert(end3)
+      return convert(begining) + ' thousand ' + convert(end3)
+    }
+
+    if (numString.length === 6) {
+      let end3 = +(numString[3] + numString[4] + numString[5])
+      let begining = +(numString[0] + numString[1] + numString[2])
+      if (end3 === 0) return convert(begining) + ' thousand'
+      if (end3 < 100)
+        return convert(begining) + ' thousand and ' + convert(end3)
+      return convert(begining) + ' thousand ' + convert(end3)
+    }
+  }
+
+  function isNegative(n) {
+    let num = n
+    if (!Number.isInteger(parseFloat(n)))
+      return 'Not a valid number, please try again with an integer!'
+
+    if (parseInt(n) < 0) {
+      if (num.length > 7)
+        return 'Too small number, please try again with a bigger!'
+      return 'minus ' + convert(num.slice(1))
+    }
+
+    return convert(n)
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    setText(convert(number))
+    setText(isNegative(number))
   }
 
   return (
